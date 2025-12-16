@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Socio-Inscripción</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Eliminar relación Socio-Inscripción</h1>
+        <form th:action="@{/deleteSocioInscripcion}" method="get" class="form-centered">
+            <div class="form-group">
+                <label for="idInscripcion">ID Inscripción:</label>
+                <input type="number" id="idInscripcion" name="idInscripcion" required class="form-control">
+            </div>            
+            <div class="form-group">
+                <label for="dniSocio">DNI del Socio:</label>
+                <input type="text" id="dniSocio" name="dniSocio" required class="form-control">
+            </div>            
+            <div class="btn-group-inline">
+                <button type="submit" class="btn">Eliminar</button>
+                <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

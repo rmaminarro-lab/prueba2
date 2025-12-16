@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error al añadir socio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Error al añadir el socio</h1>
+        
+        <div class="error-box">
+            Hubo un problema al intentar guardar el socio en la base de datos. Por favor, verifica los datos e intenta nuevamente.
+        </div>
+        
+        <div class="btn-group-inline">
+            <a href="/addSocioForm" class="btn btn-primary">Volver a intentar</a>
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

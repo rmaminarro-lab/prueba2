@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin resultados por DNI</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>No se encontraron relaciones para el DNI indicado</h1>
+        <div class="error-box">
+            No hay alquileres asociados al socio con DNI <strong th:text="${dni}">NULL</strong>.
+        </div>
+        <div class="btn-group-inline">
+            <a th:href="@{/findAlquilerSocioByDniForm}" class="btn">Buscar otro DNI</a>
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

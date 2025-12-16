@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Socio-Inscripción</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Buscar Socio-Inscripción por ID de Inscripción</h1>       
+        <form method="GET" th:action="@{/findSocioInscripcionById}" class="form-centered">
+            <div class="form-group">
+                <label for="id">ID de Inscripción:</label>
+                <input type="number" id="id" name="id" required class="form-control">
+            </div>           
+            <div class="btn-group-inline">
+                <button type="submit" class="btn">Buscar</button>
+                <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+            </div>
+        </form>        
+        <div th:if="${socioInscripciones != null and !socioInscripciones.isEmpty()}">
+            <h2>Resultados</h2>           
+            <table class="table-centered">
+                <thead>
+                    <tr>
+                        <th>ID Relación</th>
+                        <th>ID Inscripción</th>
+                        <th>DNI Socio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="relacion : ${socioInscripciones}">
+                        <td th:text="${relacion.id}">0</td>
+                        <td th:text="${relacion.idInscripcion}">NULL</td>
+                        <td th:text="${relacion.dniSocio}">NULL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${busquedaRealizada and (socioInscripciones == null or socioInscripciones.isEmpty())}" class="error-box">
+            No se ha encontrado ninguna relación socio-inscripción con ese ID de inscripción.
+        </div>
+    </div>
+</body>
+</html>

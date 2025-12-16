@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Inscripciones por DNI de Socio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Buscar Inscripciones asociadas a un Socio</h1>       
+        <form method="GET" th:action="@{/findSocioInscripcionByDni}" class="form-centered">
+            <div class="form-group">
+                <label for="dniSocio">DNI del Socio:</label>
+                <input type="text" id="dniSocio" name="dniSocio" 
+                       pattern="[0-9]{8}[A-Za-z]" 
+                       placeholder="12345678A" required class="form-control">
+            </div>            
+            <div class="btn-group-inline">
+                <button type="submit" class="btn">Buscar</button>
+                <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+            </div>
+        </form>        
+        <div th:if="${socioInscripciones != null and !socioInscripciones.isEmpty()}">
+            <h2>Resultados</h2>           
+            <table class="table-centered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID Inscripción</th>
+                        <th>DNI Socio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="socioInscripcion : ${socioInscripciones}">
+                        <td th:text="${socioInscripcion.id}">0</td>
+                        <td th:text="${socioInscripcion.idInscripcion}">NULL</td>
+                        <td th:text="${socioInscripcion.dniSocio}">NULL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>       
+        <div th:if="${socioInscripciones != null and socioInscripciones.isEmpty()}" class="error-box">
+            No se encontraron inscripciones asociadas a ese DNI.
+        </div>
+    </div>
+</body>
+</html>

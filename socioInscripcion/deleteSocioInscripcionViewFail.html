@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error al eliminar socio-inscripción</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Error</h1>        
+        <div class="error-box">
+            No se pudo eliminar la relación socio-inscripción. Verifica el ID y el DNI.
+        </div>        
+        <div class="btn-group-inline">
+            <a th:href="@{/deleteSocioInscripcionForm}" class="btn">Volver a intentar</a>
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

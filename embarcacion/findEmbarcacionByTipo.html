@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Embarcación por Tipo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Buscar Embarcación por Tipo</h1>
+        <form method="GET" th:action="@{/findEmbarcacionByTipo}" class="form-centered">
+            <div class="form-group">
+                <label for="tipo">Tipo de embarcación:</label>
+                <select name="tipo" id="tipo" class="form-control">
+                    <option value="">-- Seleccione un tipo --</option>
+                    <option value="VELERO">Velero</option>
+                    <option value="YATE">Yate</option>
+                    <option value="CATAMARAN">Catamarán</option>
+                    <option value="LANCHA">Lancha</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Buscar</button>
+        </form>
+        <div th:if="${buscado}">
+            <div th:if="${embarcaciones != null and !#lists.isEmpty(embarcaciones)}">
+                <h2>Resultados encontrados</h2>
+                <table class="table-centered">
+                    <thead>
+                        <tr>
+                            <th>Matrícula</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Plazas</th>
+                            <th>Dimensiones</th>
+                            <th>DNI Patrón</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="emb : ${embarcaciones}">
+                            <td th:text="${emb.matricula}">NULL</td>
+                            <td th:text="${emb.nombre}">NULL</td>
+                            <td th:text="${emb.tipo}">NULL</td>
+                            <td th:text="${emb.numPlazas}">0</td>
+                            <td th:text="${emb.dimensiones}">NULL</td>
+                            <td th:text="${emb.dniPatron != null ? emb.dniPatron : 'No hay patrón registrado'}">NULL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${embarcaciones == null or #lists.isEmpty(embarcaciones)}" class="error-box">
+                No se encontraron embarcaciones del tipo seleccionado.
+            </div>
+        </div>
+        <div class="btn-group-inline">
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Inscripción</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Buscar Inscripción por ID</h1>
+        <form method="GET" th:action="@{/findInscripcionById}" class="form-centered">
+            <div class="form-group">
+                <label for="id">ID de inscripción:</label>
+                <input type="number" id="id" name="id" required class="form-control">
+            </div>
+            <button type="submit" class="btn">Buscar</button>
+        </form>
+        <div th:if="${inscripcion != null}" class="card card-centered">
+            <h3>Resultado</h3>
+            <p><strong>ID:</strong> <span th:text="${inscripcion.id}">0</span></p>
+            <p><strong>Fecha de creación:</strong> <span th:text="${inscripcion.fechaCreacion}">NULL</span></p>
+            <p><strong>Tipo:</strong> <span th:text="${inscripcion.tipo}">NULL</span></p>
+            <p><strong>Cuota actual:</strong> <span th:text="${inscripcion.cuotaActual}">NULL</span></p>
+            <p><strong>DNI Titular:</strong> <span th:text="${inscripcion.dniTitular}">NULL</span></p>
+        </div>
+        <div th:if="${error != null}" class="error-box">
+            <span th:text="${error}">Error</span>
+        </div>
+        <div class="btn-group-inline">
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrón encontrado</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Patrón encontrado</h1>
+        
+        <div class="success-box">
+            Se ha encontrado el patrón solicitado.
+        </div>
+        
+        <div class="card card-centered">
+            <h3>Datos del patrón</h3>
+            <p><strong>DNI:</strong> <span th:text="${patron.dni}">NULL</span></p>
+            <p><strong>Nombre:</strong> <span th:text="${patron.nombre}">NULL</span></p>
+            <p><strong>Apellidos:</strong> <span th:text="${patron.apellidos}">NULL</span></p>
+            <p><strong>Fecha de nacimiento:</strong> <span th:text="${patron.fechaNacimiento}">NULL</span></p>
+            <p><strong>Fecha de expedición del título:</strong> <span th:text="${patron.fechaExpedicionTitulo}">NULL</span></p>
+        </div>
+        
+        <div class="btn-group-inline">
+            <a href="/findPatronForm" class="btn btn-primary">Buscar otro patrón</a>
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

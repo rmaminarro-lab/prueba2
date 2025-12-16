@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socio-Inscripción añadida</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Socio-Inscripción añadida correctamente</h1>        
+        <div class="success-box">
+            La relación socio-inscripción se ha guardado en la base de datos con éxito.
+        </div>        
+        <div class="card card-centered">
+            <h3>Datos de la relación</h3>
+            <p><strong>ID:</strong> <span th:text="${socioInscripcion.id}">0</span></p>
+            <p><strong>ID Inscripción:</strong> <span th:text="${socioInscripcion.idInscripcion}">NULL</span></p>
+            <p><strong>DNI Socio:</strong> <span th:text="${socioInscripcion.dniSocio}">NULL</span></p>
+        </div>        
+        <div class="btn-group-inline">
+            <a th:href="@{/addSocioInscripcion}" class="btn">Añadir otra relación</a>
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

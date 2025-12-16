@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaciones encontradas por ID Alquiler</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Relaciones encontradas por ID de Alquiler</h1>
+        <div class="card card-centered">
+            <p><strong>ID Alquiler:</strong> <span th:text="${idAlquiler}">0</span></p>
+        </div>
+        <table class="table-centered">
+            <thead>
+                <tr>
+                    <th>ID Alquiler</th>
+                    <th>DNI Socio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="alquilerSocio : ${alquilerSocios}">
+                    <td th:text="${alquilerSocio.idAlquiler}">0</td>
+                    <td th:text="${alquilerSocio.dniSocio}">NULL</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="btn-group-inline">
+            <a th:href="@{/findAlquilerSocioByIdForm}" class="btn">Buscar otro ID</a>
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

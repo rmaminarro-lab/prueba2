@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Embarcación por Matrícula</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Buscar Embarcación por Matrícula</h1>
+        <form method="GET" th:action="@{/findEmbarcacionByMatricula}" class="form-centered">
+            <div class="form-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required class="form-control">
+            </div>
+            <button type="submit" class="btn">Buscar</button>
+        </form>
+        <div th:if="${buscado}">
+            <div th:if="${embarcacion != null}" class="card card-centered">
+                <h3>Resultado</h3>
+                <p><strong>Matrícula:</strong> <span th:text="${embarcacion.matricula}">NULL</span></p>
+                <p><strong>Nombre:</strong> <span th:text="${embarcacion.nombre}">NULL</span></p>
+                <p><strong>Tipo:</strong> <span th:text="${embarcacion.tipo}">NULL</span></p>
+                <p><strong>Número de plazas:</strong> <span th:text="${embarcacion.numPlazas}">0</span></p>
+                <p><strong>Dimensiones:</strong> <span th:text="${embarcacion.dimensiones}">NULL</span></p>
+                <p><strong>DNI del Patrón:</strong> <span th:text="${embarcacion.dniPatron != null ? embarcacion.dniPatron : 'No hay patrón registrado'}">NULL</span></p>
+            </div>
+            <div th:if="${embarcacion == null}" class="error-box">
+                No se encontró ninguna embarcación con esa matrícula.
+            </div>
+        </div>
+        <div class="btn-group-inline">
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

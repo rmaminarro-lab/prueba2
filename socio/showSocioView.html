@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Socios</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Todos los Socios</h1>
+        
+        <div th:if="${socios != null and !socios.isEmpty()}">
+            <div class="info-box">
+                <strong>Total de socios:</strong> <span th:text="${socios.size()}">0</span>
+            </div>
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Dirección</th>
+                            <th>Fecha Inscripción</th>
+                            <th>Es Titular</th>
+                            <th>Tiene Título Patrón</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="socio : ${socios}">
+                            <td th:text="${socio.dni}">12345678A</td>
+                            <td th:text="${socio.nombre}">Nombre</td>
+                            <td th:text="${socio.apellidos}">Apellidos</td>
+                            <td th:text="${socio.fechaNacimiento}">2000-01-01</td>
+                            <td th:text="${socio.direccion}">Dirección</td>
+                            <td th:text="${socio.fechaInscripcion}">2024-01-01</td>
+                            <td th:text="${socio.esTitular ? 'Sí' : 'No'}">Sí</td>
+                            <td th:text="${socio.tieneTituloPatron ? 'Sí' : 'No'}">No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div th:if="${socios == null or socios.isEmpty()}">
+            <div class="warning-box">
+                No hay socios registrados en la base de datos.
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

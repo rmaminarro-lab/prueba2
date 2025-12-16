@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socio añadido</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Socio añadido correctamente</h1>
+        
+        <div class="success-box">
+            El socio se ha guardado en la base de datos con éxito.
+        </div>
+        
+        <div class="card card-centered">
+            <h3>Datos del socio</h3>
+            <p><strong>DNI:</strong> <span th:text="${socio.dni}">NULL</span></p>
+            <p><strong>Nombre:</strong> <span th:text="${socio.nombre}">NULL</span></p>
+            <p><strong>Apellidos:</strong> <span th:text="${socio.apellidos}">NULL</span></p>
+            <p><strong>Fecha de Nacimiento:</strong> <span th:text="${socio.fechaNacimiento}">NULL</span></p>
+            <p><strong>Dirección:</strong> <span th:text="${socio.direccion}">NULL</span></p>
+            <p><strong>Fecha de Inscripción:</strong> <span th:text="${socio.fechaInscripcion}">NULL</span></p>
+            <p><strong>Es Titular:</strong> <span th:text="${socio.esTitular ? 'Sí' : 'No'}">NULL</span></p>
+            <p><strong>Tiene Título Patrón:</strong> <span th:text="${socio.tieneTituloPatron ? 'Sí' : 'No'}">NULL</span></p>
+        </div>
+        
+        <div class="btn-group-inline">
+            <a href="/addSocioForm" class="btn btn-primary">Añadir otro socio</a>
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

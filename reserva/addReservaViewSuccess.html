@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva añadida</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Reserva añadida correctamente</h1>
+        
+        <div class="success-box">
+            La reserva se ha guardado en la base de datos con éxito.
+        </div>
+        
+        <div class="card card-centered">
+            <h3>Detalles de la reserva</h3>
+            <p><strong>ID:</strong> <span th:text="${reserva.id}">0</span></p>
+            <p><strong>DNI del Socio:</strong> <span th:text="${reserva.dniSocio}">NULL</span></p>
+            <p><strong>Matrícula de la embarcación:</strong> <span th:text="${reserva.matricula}">NULL</span></p>
+            <p><strong>Fecha de reserva:</strong> <span th:text="${reserva.fecha}">NULL</span></p>
+            <p><strong>Plazas Reservadas:</strong> <span th:text="${reserva.plazasReservadas}">0</span></p>
+            <p><strong>Propósito:</strong> <span th:text="${reserva.proposito}">NULL</span></p>
+            <p><strong>Precio total:</strong> <span th:text="${reserva.precioTotal}">0.0</span> €</p>
+        </div>
+        
+        <div class="btn-group-inline">
+            <a href="/addReservaForm" class="btn btn-primary">Añadir otra reserva</a>
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Inscripciones</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Inscripciones (Req. A.5)</h1>
+        
+        <div th:if="${inscripciones != null and !inscripciones.isEmpty()}">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Inscripción</th>
+                            <th>DNI Titular</th>
+                            <th>Tipo</th>
+                            <th>Familiares Vinculados</th>
+                            <th>Cuota Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="insc : ${inscripciones}">
+                            <td th:text="${insc.id}">1</td>
+                            <td th:text="${insc.dniTitular}">12345678A</td>
+                            <td th:text="${insc.tipo}">INDIVIDUAL</td>
+                            
+                            <td th:text="${familiaresCount.get(insc.id)}">0</td>
+                            
+                            <td th:text="${#numbers.formatDecimal(insc.cuotaActual, 1, 'POINT', 2, 'COMMA') + ' €'}">300.00 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div th:if="${inscripciones == null or inscripciones.isEmpty()}">
+            <div class="warning-box">
+                No hay inscripciones registradas.
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

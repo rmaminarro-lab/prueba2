@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Evento (con Patrón)</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reservar Evento (Req. D.1)</h1>
+        
+        <form action="/addReserva" method="post">
+            <div class="info-box">
+                Solo para embarcaciones CON patrón (empleado) asociado.
+            </div>
+
+            <div class="form-group">
+                <label for="dniSocio">
+                    DNI del Socio (mayor de edad) <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="dniSocio" 
+                       name="dniSocio" 
+                       pattern="[0-9]{8}[A-Za-z]" 
+                       placeholder="12345678A" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label for="matricula">
+                    Matrícula de la Embarcación <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="matricula" 
+                       name="matricula" 
+                       placeholder="MAT001" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label for="fecha">
+                    Fecha del Evento (un solo día) <span class="required">*</span>
+                </label>
+                <input type="date" 
+                       id="fecha" 
+                       name="fecha" 
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label for="plazasReservadas">
+                    Plazas Solicitadas (sin contar al patrón) <span class="required">*</span>
+                </label>
+                <input type="number" 
+                       id="plazasReservadas" 
+                       name="plazasReservadas" 
+                       min="1" 
+                       placeholder="4"
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label for="proposito">
+                    Propósito <span class="required">*</span>
+                </label>
+                <textarea id="proposito" 
+                          name="proposito" 
+                          rows="3" 
+                          placeholder="Excursión familiar" 
+                          required></textarea>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Añadir Reserva</button>
+                <a href="/" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

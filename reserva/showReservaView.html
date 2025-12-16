@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Reservas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Reservas</h1>
+        <div th:if="${reservas != null and !reservas.isEmpty()}">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>DNI Socio</th>
+                            <th>Matrícula</th>
+                            <th>Fecha</th>
+                            <th>Plazas Reservadas</th>
+                            <th>Propósito</th>
+                            <th>Precio Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="reserva : ${reservas}">
+                            <td th:text="${reserva.id}">ID</td>
+                            <td th:text="${reserva.dniSocio}">DNI Socio</td>
+                            <td th:text="${reserva.matricula}">Matrícula</td>
+                            <td th:text="${reserva.fecha}">Fecha</td>
+                            <td th:text="${reserva.plazasReservadas}">Plazas</td>
+                            <td th:text="${reserva.proposito}">Propósito</td>
+                            <td th:text="${reserva.precioTotal}">Precio</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div th:if="${reservas == null or reservas.isEmpty()}">
+            <div class="warning-box">
+                No hay reservas registradas.
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Inscripciones por Tipo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Resumen de Inscripciones por Tipo</h1>
+        <table class="table-centered">
+            <thead>
+                <tr>
+                    <th>Tipo de Inscripción</th>
+                    <th>Número de Inscripciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="resumen : ${resumenTipos}">
+                    <td th:text="${resumen.tipo}">Tipo</td>
+                    <td th:text="${resumen.cantidad}">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="btn-group-inline">
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Socio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Eliminar Socio</h1>
+        
+        <div class="warning-box">
+            <strong>Advertencia:</strong> Esta acción eliminará permanentemente el socio de la base de datos.
+        </div>
+        
+        <form action="/deleteSocio" method="get">
+            <div class="form-group">
+                <label for="dni">
+                    DNI del socio <span class="required">*</span>
+                </label>
+                <input type="text" 
+                       id="dni" 
+                       name="dni" 
+                       pattern="[0-9]{8}[A-Za-z]"
+                       placeholder="12345678A"
+                       required>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <a href="/" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

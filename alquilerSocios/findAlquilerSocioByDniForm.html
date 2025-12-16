@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar por DNI de Socio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Buscar relaciones por DNI de Socio</h1>  
+        <form th:action="@{/findAlquilerSocioByDni}" method="get" class="form-centered">
+            <div class="form-group">
+                <label for="dni">DNI Socio:</label>
+                <input type="text" id="dni" name="dni" required class="form-control" />
+            </div>
+            <button type="submit" class="btn">Buscar</button>
+        </form>
+        <div class="btn-group-inline">
+            <a th:href="@{/}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</body>
+</html>

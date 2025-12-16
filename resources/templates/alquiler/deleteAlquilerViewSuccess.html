@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alquiler eliminado</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Alquiler eliminado correctamente</h1>
+        <div class="success-box">
+            El alquiler con ID <strong th:text="${id}">0</strong> ha sido eliminado de la base de datos.
+        </div>
+        <div class="btn-group-inline">
+            <a href="/deleteAlquiler" class="btn">Eliminar otro alquiler</a>
+            <a href="/" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

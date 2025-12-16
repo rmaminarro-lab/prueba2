@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alquiler añadido</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Alquiler añadido correctamente</h1>
+        <div class="success-box">
+            El alquiler se ha guardado en la base de datos con éxito.
+        </div>
+        <div class="card card-centered">
+            <h3>Detalles del Alquiler</h3>
+            <p><strong>ID:</strong> <span th:text="${alquiler.id}">0</span></p>
+            <p><strong>ID Inscripción:</strong> <span th:text="${alquiler.idInscripcion}">0</span></p>
+            <p><strong>Matrícula:</strong> <span th:text="${alquiler.matricula}">NULL</span></p>
+            <p><strong>Fecha de inicio:</strong> <span th:text="${alquiler.fechaInicio}">NULL</span></p>
+            <p><strong>Fecha de fin:</strong> <span th:text="${alquiler.fechaFin}">NULL</span></p>
+            <p><strong>Plazas reservadas:</strong> <span th:text="${alquiler.plazasReservadas}">0</span></p>
+            <p><strong>Precio total:</strong> <span th:text="${alquiler.precioTotal}">0.0</span></p>
+        </div>
+        <div class="btn-group-inline">
+            <a href="/addAlquiler" class="btn">Añadir otro alquiler</a>
+            <a href="/" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

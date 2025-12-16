@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relación eliminada</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Relación Alquiler-Socio eliminada correctamente</h1>
+        <div class="success-box">
+            La relación se ha eliminado de la base de datos con éxito.
+        </div>
+        <div class="card card-centered">
+            <h3>Datos de la relación eliminada</h3>
+            <p><strong>ID Alquiler:</strong> <span th:text="${idAlquiler}">0</span></p>
+            <p><strong>DNI Socio:</strong> <span th:text="${dni}">NULL</span></p>
+        </div>
+        <div class="btn-group-inline">
+            <a th:href="@{/deleteAlquilerSocioForm}" class="btn">Eliminar otra relación</a>
+            <a th:href="@{/}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

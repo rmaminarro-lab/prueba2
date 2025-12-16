@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Alquileres</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Todos los Alquileres</h1>
+
+        <div th:if="${alquileres != null and !alquileres.isEmpty()}">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Alquiler</th>
+                            <th>ID Inscripción</th>
+                            <th>Matrícula</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Plazas</th>
+                            <th>Precio Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="alquiler : ${alquileres}">
+                            <td th:text="${alquiler.id}">1</td>
+                            <td th:text="${alquiler.idInscripcion}">10</td>
+                            <td th:text="${alquiler.matricula}">ABC123</td>
+                            <td th:text="${alquiler.fechaInicio}">2025-11-01</td>
+                            <td th:text="${alquiler.fechaFin}">2025-11-02</td>
+                            <td th:text="${alquiler.plazasReservadas}">4</td>
+                            <td th:text="|${#numbers.formatDecimal(alquiler.precioTotal, 1, 'POINT', 2, 'COMMA')} €|">100.0 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div th:if="${alquileres == null or alquileres.isEmpty()}">
+            <div class="warning-box">
+                No hay alquileres registrados.
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="/" class="btn volver">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

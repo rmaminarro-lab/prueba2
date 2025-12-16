@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Alquiler</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Alquiler por ID</h1>
+        <form th:action="@{/findAlquiler}" method="get">
+            <div class="form-group">
+                <label for="id">ID del Alquiler <span class="required">*</span></label>
+                <input type="number" id="id" name="id" required/>
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn">Buscar</button>
+                <a href="/" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+        <div th:if="${buscado}">
+            <div th:if="${alquiler != null}">
+                <h2 class="results-title">Resultado:</h2>
+                <div class="card card-centered">
+                    <p><strong>ID:</strong> <span th:text="${alquiler.id}">0</span></p>
+                    <p><strong>ID Inscripción:</strong> <span th:text="${alquiler.idInscripcion}">0</span></p>
+                    <p><strong>Matrícula:</strong> <span th:text="${alquiler.matricula}">NULL</span></p>
+                    <p><strong>Fecha de inicio:</strong> <span th:text="${alquiler.fechaInicio}">NULL</span></p>
+                    <p><strong>Fecha de fin:</strong> <span th:text="${alquiler.fechaFin}">NULL</span></p>
+                    <p><strong>Plazas reservadas:</strong> <span th:text="${alquiler.plazasReservadas}">0</span></p>
+                    <p><strong>Precio total:</strong> <span th:text="${alquiler.precioTotal}">0.0</span></p>
+                </div>
+            </div>
+            <div th:if="${alquiler == null}">
+                <div class="error-box">
+                    No se encontró ningún alquiler con ese ID.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

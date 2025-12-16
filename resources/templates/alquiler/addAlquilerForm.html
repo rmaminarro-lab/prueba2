@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquilar Embarcación</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Alquilar Embarcación (Req. C.2)</h1>
+        
+        <form th:action="@{/addAlquiler}" method="post">
+            <div class="info-box">
+                Recuerde: Solo socios titulares con título de patrón pueden alquilar.
+            </div>
+
+            <div class="form-group">
+                <label for="dniTitular">DNI del Socio Titular (con título) <span class="required">*</span></label>
+                <input type="text" 
+                       id="dniTitular"
+                       name="dniTitular" 
+                       pattern="[0-9]{8}[A-Za-z]" 
+                       placeholder="12345678A"
+                       required/>
+            </div>
+            
+            <div class="form-group">
+                <label for="matricula">Matrícula de la Embarcación <span class="required">*</span></label>
+                <input type="text" 
+                       id="matricula" 
+                       name="matricula" 
+                       placeholder="MAT001"
+                       required/>
+            </div>
+            
+            <div class="form-group">
+                <label for="plazasReservadas">Plazas Deseadas (incluyendo al socio) <span class="required">*</span></label>
+                <input type="number" 
+                       id="plazasReservadas"
+                       name="plazasReservadas" 
+                       min="1"
+                       placeholder="4"
+                       required/>
+            </div>
+            
+            <div class="form-group">
+                <label for="fechaInicio">Fecha de Inicio <span class="required">*</span></label>
+                <input type="date" 
+                       id="fechaInicio" 
+                       name="fechaInicio" 
+                       required/>
+            </div>
+            
+            <div class="form-group">
+                <label for="fechaFin">Fecha de Fin <span class="required">*</span></label>
+                <input type="date" 
+                       id="fechaFin" 
+                       name="fechaFin" 
+                       required/>
+            </div>
+            
+            <div class="warning-box">
+                <strong>Reglas de Temporada:</strong><br/>
+                - <strong>Octubre a Abril:</strong> Solo alquileres de 3 días.<br/>
+                - <strong>Mayo a Septiembre:</strong> Solo alquileres de 1 o 2 semanas (7 o 14 días).
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Confirmar Alquiler</button>
+                <a href="/" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
